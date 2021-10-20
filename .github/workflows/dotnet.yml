@@ -15,10 +15,10 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v1.0.3
 
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
+      uses: NuGet/setup-nuget@v1.0.5
       
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
