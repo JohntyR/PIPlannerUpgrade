@@ -157,10 +157,15 @@ function addDraggableEvents(draggable) {
 
                 //Add estimate element that can be edited - add before close button - but not for dep draggables
                 if (cardName == "Dev" || cardName == "QA") {
-                    var draggableEstimate = document.createElement("p")
-                    draggableEstimate.setAttribute("contenteditable", "true")
-                    draggableEstimate.classList.add('my-auto')
-                    draggableEstimate.innerHTML = "10"
+                    var draggableEstimate = document.createElement("input")
+                    draggableEstimate.setAttribute("size", "2")
+                    draggableEstimate.setAttribute("onclick", "this.select();")
+                    //draggableEstimate.setAttribute("contenteditable", "true")
+                    draggableEstimate.classList.add('my-auto', 'text-center', toastDict[cardName]["bg-colour"], 'bg-gradient', 'form-control', 'text-white', 'estimate-text')
+                    //draggableEstimate.innerHTML = "10"
+                    //draggableEstimate.addEventListener('click', () => {
+                    //    this.select();
+                    //})
                     //append to the draggable header
                     draggable.querySelector('.toast-header').appendChild(draggableEstimate)
                 }
@@ -255,7 +260,8 @@ function calcSprintLoad(toastType) {
             var sprintDraggables = sprintContainer.querySelectorAll(`.${toastType}-draggable`)
             //loop through all draggables and increment sprint load by draggable estimate
             sprintDraggables.forEach(sprintDraggable => {
-                var draggableEstimate = parseInt(sprintDraggable.querySelector('p').innerHTML);
+                var draggableEstimate = parseInt(sprintDraggable.querySelector('.estimate-text').value);
+                console.log(sprintDraggable.querySelector('.estimate-text').value)
                 sprintLoad = sprintLoad + draggableEstimate;
             })
         })
