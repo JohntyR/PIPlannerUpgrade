@@ -261,7 +261,6 @@ function calcSprintLoad(toastType) {
             //loop through all draggables and increment sprint load by draggable estimate
             sprintDraggables.forEach(sprintDraggable => {
                 var draggableEstimate = parseInt(sprintDraggable.querySelector('.estimate-text').value);
-                console.log(sprintDraggable.querySelector('.estimate-text').value)
                 sprintLoad = sprintLoad + draggableEstimate;
             })
         })
